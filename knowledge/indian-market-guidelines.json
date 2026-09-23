@@ -1,0 +1,49 @@
+{
+  "target_market": "India - 360° Photographers, Google Street View Trusted Creators & Virtual Tour Agencies",
+  "positioning_angles": [
+    {
+      "angle": "Google Street View & Google Maps Publishing",
+      "hook": "Publish high-resolution connected 360° virtual tours directly to Google Street View and Google Maps for local Indian businesses (showrooms, restaurants, hotels, schools, hospitals, gyms).",
+      "pain_point_solved": "Creators often struggle with complex or broken Street View tools and unlinked panoramas."
+    },
+    {
+      "angle": "Affordable Pay As You Go (₹100 per tour credit)",
+      "hook": "No expensive USD subscriptions. Pay ₹100 per tour credit that never expires. Ideal for freelance photographers and project-based studios in India.",
+      "pain_point_solved": "Matterport and US-based platforms charge heavy monthly recurring dollar subscriptions ($30-$70+/mo) which are costly for independent Indian photographers with seasonal or irregular projects."
+    },
+    {
+      "angle": "Embed & Client Delivery",
+      "hook": "Fast, branded virtual tour player with custom nadir tripod logo patching and ready-to-paste embed codes for client websites.",
+      "pain_point_solved": "Delivering clean tours without third-party watermarks."
+    }
+  ],
+  "target_hashtags": [
+    "360photographyindia",
+    "streetviewphotographerindia",
+    "googlestreetviewtrusted",
+    "360virtualtourindia",
+    "virtualtouragencyindia",
+    "streetviewindia",
+    "googlevirtualtourindia",
+    "realestatephotographerindia",
+    "360photographerdelhi",
+    "360photographermumbai",
+    "360photographerbangalore"
+  ],
+  "target_cities": [
+    "Mumbai",
+    "Delhi NCR",
+    "Bangalore",
+    "Hyderabad",
+    "Pune",
+    "Chennai",
+    "Ahmedabad",
+    "Kolkata",
+    "Jaipur",
+    "Surat",
+    "Indore",
+    "Chandigarh",
+    "Lucknow"
+  ],
+  "outreach_tone": "Respectful, peer-to-peer, creator-to-creator, focused on client business and Google Maps workflow. Never spammy."
+}

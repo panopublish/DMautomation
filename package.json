@@ -1,0 +1,45 @@
+{
+  "name": "panopublish-dm-automation",
+  "version": "1.0.0",
+  "description": "Production-ready AI Instagram DM Automation System for PanoPublish 360° Virtual Tour SaaS",
+  "main": "cli/panopublish-cli.js",
+  "bin": {
+    "panopublish-dm": "./cli/panopublish-cli.js"
+  },
+  "scripts": {
+    "setup": "node cli/panopublish-cli.js setup",
+    "auth": "node cli/panopublish-cli.js auth",
+    "status": "node cli/panopublish-cli.js status",
+    "scan": "node cli/panopublish-cli.js scan",
+    "dms": "node cli/panopublish-cli.js dms",
+    "analyze": "node cli/panopublish-cli.js analyze",
+    "approve": "node cli/panopublish-cli.js approve",
+    "reject": "node cli/panopublish-cli.js reject",
+    "dry-run": "node cli/panopublish-cli.js dry-run",
+    "dashboard": "node src/server/dashboard-server.js",
+    "mobile": "node scripts/mobile-tunnel.js",
+    "tunnel": "npx -y localtunnel --port 3000",
+    "start": "node src/server/dashboard-server.js",
+    "test": "node tests/run-all-tests.js"
+  },
+  "keywords": [
+    "panopublish",
+    "virtual-tours",
+    "360-tours",
+    "instagram-automation",
+    "cdp",
+    "brave",
+    "puppeteer",
+    "ai-agent",
+    "dm-automation"
+  ],
+  "author": "PanoPublish Team",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "puppeteer-core": "^22.15.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

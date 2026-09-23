@@ -1,0 +1,39 @@
+{
+  "audiences": [
+    {
+      "type": "360_PHOTOGRAPHER",
+      "description": "Creators shooting 360 panoramas with dedicated 360 cameras (Insta360, Ricoh Theta, Trisio) looking to package tours for clients.",
+      "primary_needs": ["Easy scene linking", "Nadir tripod cap", "Fast client tour delivery"]
+    },
+    {
+      "type": "GOOGLE_STREET_VIEW_PHOTOGRAPHER",
+      "description": "Photographers helping local businesses get verified 360 imagery and connected Street View tours on Google Maps.",
+      "primary_needs": ["Direct Google Street View publishing", "Blue line connection", "Google Maps local SEO"]
+    },
+    {
+      "type": "REAL_ESTATE_PHOTOGRAPHER",
+      "description": "Property photographers offering virtual walkthroughs to brokers, realtors, and property managers.",
+      "primary_needs": ["Multi-level floor plans", "MLS compliant embeds", "Clean mobile experience"]
+    },
+    {
+      "type": "DIGITAL_AGENCY",
+      "description": "Marketing and Local SEO agencies offering virtual tours as a value-add service to commercial clients.",
+      "primary_needs": ["Branding customization", "Multiple client management", "Reliable hosting"]
+    },
+    {
+      "type": "HOSPITALITY_BUSINESS",
+      "description": "Hotels, resorts, restaurants, event venues wanting prospective guests to experience their space before booking.",
+      "primary_needs": ["Website embed", "High visual quality", "Direct booking links inside tour"]
+    },
+    {
+      "type": "LOCAL_BUSINESS",
+      "description": "Showrooms, clinics, gyms, schools wanting to boost their Google presence and walk-in confidence.",
+      "primary_needs": ["Affordable one-time or pay-as-you-go pricing", "Street View integration"]
+    },
+    {
+      "type": "TOOL_EVALUATOR",
+      "description": "Creators evaluating alternatives to Matterport or CloudPano looking for better pricing, less lock-in, or Street View workflow.",
+      "primary_needs": ["No high monthly hardware or hosting lock-in", "Transparent pay-per-tour pricing"]
+    }
+  ]
+}

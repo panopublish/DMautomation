@@ -1,0 +1,36 @@
+{
+  "faqs": [
+    {
+      "question": "Can I use an Insta360 X3 or X4 with PanoPublish?",
+      "answer": "Yes, absolutely. Any camera that exports standard 360° equirectangular panoramas (including the Insta360 X2, X3, X4, and 1-Inch) works seamlessly with PanoPublish."
+    },
+    {
+      "question": "Does PanoPublish support Google Street View publishing?",
+      "answer": "Yes, PanoPublish includes a direct workflow to connect your 360° scenes and publish them to Google Maps and Google Street View."
+    },
+    {
+      "question": "Can I create multi-level or multi-floor virtual tours?",
+      "answer": "Yes, PanoPublish supports multi-level navigation, making it easy for viewers to switch between floors or distinct zones within a property."
+    },
+    {
+      "question": "How does Pay As You Go work?",
+      "answer": "Pay As You Go allows you to buy individual tour publishing credits for ₹100 per extra tour. These credits never expire, which is ideal if you shoot tours irregularly."
+    },
+    {
+      "question": "What subscription plans are available?",
+      "answer": "We offer monthly plans starting at $5.99 for beginners, $15.99 for active creators, and $32.99 for agencies and studios."
+    },
+    {
+      "question": "Can I hide the tripod at the bottom of the photo?",
+      "answer": "Yes, PanoPublish lets you add a custom nadir patch (such as your own logo or client branding) to cover the tripod head cleanly."
+    },
+    {
+      "question": "How do clients view the tour?",
+      "answer": "You can share a direct web link or embed the tour directly into the client's website with a simple iframe embed code."
+    },
+    {
+      "question": "How does PanoPublish compare to Matterport or CloudPano?",
+      "answer": "PanoPublish is designed for creators who want an intuitive, creator-friendly platform without forced subscription lock-in or high equipment costs, with direct support for Google Street View and flexible Pay-As-You-Go credits."
+    }
+  ]
+}

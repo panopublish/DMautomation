@@ -1,0 +1,28 @@
+# Environment variables and secrets
+.env
+*.env.local
+
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Storage and persistent runtime data
+data/*
+!data/outreach-hub.json
+!data/leads.json
+*.sqlite
+*.db
+
+# Temporary and browser profiles
+browser-profile/
+sessions/
+private/
+*.tmp*
+.temp*
+
+# OS artifacts
+.DS_Store
+Thumbs.db

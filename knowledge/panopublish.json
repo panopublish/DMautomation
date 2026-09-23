@@ -1,0 +1,64 @@
+{
+  "product": {
+    "name": "PanoPublish",
+    "category": "360° Virtual-Tour Builder & Publishing SaaS",
+    "positioning": "Create, manage and publish professional 360° virtual tours.",
+    "tagline": "Shoot. Create. Publish. Earn.",
+    "overview": "PanoPublish is a streamlined, web-based platform for 360° photographers, agencies, and businesses to turn raw panoramic photos into interactive, multi-level virtual tours and publish them to the web or Google Street View."
+  },
+  "workflow": [
+    "1. 360° Photography (Insta360, Ricoh Theta, DSLR with fisheye, or any equirectangular panorama)",
+    "2. Upload panoramas into PanoPublish",
+    "3. Organize scenes and adjust starting orientations",
+    "4. Connect scenes with interactive navigational hotspots",
+    "5. Create virtual tour with customized branding & nadir patch logos",
+    "6. Build multi-level tours for multi-story properties when required",
+    "7. Publish, share with client via direct link, or embed into any website",
+    "8. Publish directly to Google Street View and Google Maps where supported"
+  ],
+  "features": [
+    "Upload and manage high-resolution 360° equirectangular panoramas",
+    "Visual scene connector and interactive hotspot editor",
+    "Multi-level floor navigation for multi-story buildings and venues",
+    "Custom nadir tripod cap / branding logo overlay",
+    "Client project management and branded white-label sharing",
+    "Google Street View publishing integration for local SEO & Google Maps",
+    "Custom responsive WebGL virtual tour viewer",
+    "Embed codes for client websites, listings, and MLS",
+    "Tour analytics and visitor tracking where available"
+  ],
+  "supported_hardware": [
+    "Consumer & Prosumer 360 Cameras (Insta360 X2/X3/X4, Insta360 ONE RS 1-Inch 360, Ricoh Theta SC2/V/Z1/X, Trisio Lite2, Kandao QooCam)",
+    "DSLR / Mirrorless cameras with fisheye lenses and panoramic tripod heads",
+    "Any camera exporting standard 2:1 equirectangular JPEG or PNG panoramas"
+  ],
+  "market_alternatives": {
+    "context": "PanoPublish serves creators who evaluate or use tools like Matterport, CloudPano, TourBuilder, Kuula, and Marzipano.",
+    "factual_positioning": "PanoPublish offers a direct, creator-friendly workflow with transparent pricing, pay-as-you-go flexibility without forced recurring lock-ins, and direct Google Street View integration. Never make unsupported claims like 'we are strictly better than X' unless discussing specific workflow features."
+  },
+  "pricing": {
+    "philosophy": "Do not quote pricing proactively in every conversation. Only mention pricing when the user asks or when evaluating plan fit.",
+    "subscription_plans": [
+      {
+        "name": "Starter",
+        "price": "$5.99 / month",
+        "description": "Ideal for individual photographers getting started with client tours."
+      },
+      {
+        "name": "Pro",
+        "price": "$15.99 / month",
+        "description": "For active virtual tour creators needing higher tour limits and branding."
+      },
+      {
+        "name": "Agency / Business",
+        "price": "$32.99 / month",
+        "description": "For high-volume studios, marketing agencies, and commercial projects."
+      }
+    ],
+    "pay_as_you_go": {
+      "price": "₹100 per extra tour",
+      "rules": "Tour credits purchased through Pay As You Go never expire. Great for seasonal or occasional creators."
+    },
+    "restrictions": "Never invent discounts, coupons, refunds, money-back guarantees, or unreleased features."
+  }
+}

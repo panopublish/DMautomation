@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PanoPublish — DM Outreach Command Center</title>
+  <meta name="description" content="Instagram DM automation, Indian 360 creator outreach hub, and analytics for PanoPublish.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/outreach-hub.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">PanoPublish</div>
+          <div class="brand-subtitle">DM Outreach Command Center</div>
+        </div>
+      </div>
+
+      <div class="header-status-strip">
+        <div class="status-pill" id="cdp-status-pill">
+          <span class="status-dot green pulse"></span>
+          <span id="cdp-status-label">Brave CDP: Connected</span>
+        </div>
+        <div class="status-pill" id="auth-status-pill">
+          <span class="status-dot yellow"></span>
+          <span id="auth-status-label">Instagram: Checking...</span>
+        </div>
+        <div class="mode-badge" id="mode-badge">DRY RUN</div>
+      </div>
+    </header>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="sub-nav">
+      <button class="tab-btn" id="tab-overview" onclick="switchTab('overview')">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Overview
+      </button>
+      <button class="tab-btn active" id="tab-outreach" onclick="switchTab('outreach')">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        🎯 Outreach Hub
+      </button>
+      <button class="tab-btn" id="tab-approvals" onclick="switchTab('approvals')">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        Approval Queue <span class="badge-count" id="pending-badge-count">0</span>
+      </button>
+      <button class="tab-btn" id="tab-discovery" onclick="switchTab('discovery')">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        AI Lead Finder
+      </button>
+      <button class="tab-btn" id="tab-conversations" onclick="switchTab('conversations')">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Inbox
+      </button>
+    </nav>
+
+    <!-- CONTENT PANELS -->
+
+    <!-- Panel 1: Overview & Metrics -->
+    <main class="content-panel" id="panel-overview">
+      <div class="metrics-grid">
+        <div class="metric-card glow-cyan">
+          <div class="metric-header">
+            <span class="metric-title">Total DMs Sent</span>
+            <span class="metric-icon">📤</span>
+          </div>
+          <div class="metric-value" id="stat-dms-sent">0</div>
+          <div class="metric-footer">Verified permanent DOM bubble delivery</div>
+        </div>
+
+        <div class="metric-card glow-emerald">
+          <div class="metric-header">
+            <span class="metric-title">Replies Received</span>
+            <span class="metric-icon">📥</span>
+          </div>
+          <div class="metric-value" id="stat-replies-received">0</div>
+          <div class="metric-footer">Customer responses detected</div>
+        </div>
+
+        <div class="metric-card glow-purple">
+          <div class="metric-header">
+            <span class="metric-title">Reply Rate</span>
+            <span class="metric-icon">⚡</span>
+          </div>
+          <div class="metric-value" id="stat-reply-rate">0%</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="reply-rate-bar" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="metric-card glow-amber">
+          <div class="metric-header">
+            <span class="metric-title">Pending Approvals</span>
+            <span class="metric-icon">🛡️</span>
+          </div>
+          <div class="metric-value" id="stat-pending-approvals">0</div>
+          <div class="metric-footer">Waiting for your 1-click review</div>
+        </div>
+      </div>
+
+      <div class="analytics-split">
+        <div class="card card-half">
+          <div class="card-header">
+            <h3>Outreach Summary</h3>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('outreach')">Open Hub</button>
+          </div>
+          <div class="market-pill-grid">
+            <div class="market-stat-box">
+              <span class="subtext">Hub Targets</span>
+              <strong id="stat-hub-creators">0</strong>
+            </div>
+            <div class="market-stat-box">
+              <span class="subtext">Messaged</span>
+              <strong id="stat-hub-messaged">0</strong>
+            </div>
+            <div class="market-stat-box">
+              <span class="subtext">Pay As You Go</span>
+              <strong>₹100 / Tour</strong>
+            </div>
+          </div>
+          <p class="section-desc">
+            PanoPublish gives Indian 360 photographers and Street View agencies a creator-first workflow with direct Google Maps publishing and ₹100 Pay As You Go credits.
+          </p>
+        </div>
+
+        <div class="card card-half">
+          <div class="card-header">
+            <h3>Live Conversation Activity</h3>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('conversations')">View All</button>
+          </div>
+          <div class="conversation-feed" id="mini-conversation-feed">
+            <div class="empty-state">No conversation turns recorded yet. Open Outreach Hub to start.</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Panel 2: OUTREACH HUB (New flagship tab) -->
+    <main class="content-panel active" id="panel-outreach">
+      <div class="hub-header">
+        <div class="hub-header-left">
+          <h2>🎯 Indian 360° Creator Outreach Hub</h2>
+          <p>Google Street View Trusted photographers, virtual tour agencies & studios across India. Send DMs, WhatsApp messages or LinkedIn outreach in one click.</p>
+        </div>
+        <div class="hub-header-actions">
+          <button class="btn btn-secondary btn-sm" onclick="loadOutreachHub()">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+            Refresh
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="openAddCreatorModal()">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add Creator
+          </button>
+        </div>
+      </div>
+
+      <!-- Safety Banner -->
+      <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.28); border-radius: 8px; padding: 12px 18px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: 13px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="font-size:20px; line-height:1;">🛡️</span>
+          <div>
+            <strong style="color: #34d399;">Manual Safe Mode Active (Zero Bot Activity):</strong>
+            <span style="color: var(--text-muted); margin-left:4px;">Automated browser clicking is turned OFF to protect your Instagram account. Click any creator to copy your pitch and open their direct DM or WhatsApp in a new tab — then simply press <kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px; font-family:monospace; color:white;">Ctrl+V</kbd> and send!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="hub-stats-bar">
+        <div class="hub-stat">
+          <span class="hub-stat-value" id="hub-total">0</span>
+          <span class="hub-stat-label">Total Verified</span>
+        </div>
+        <div class="hub-stat">
+          <span class="hub-stat-value" id="hub-wa-count" style="color: #4ade80;">0</span>
+          <span class="hub-stat-label">🟢 WhatsApp Verified</span>
+        </div>
+        <div class="hub-stat">
+          <span class="hub-stat-value" id="hub-ig-count" style="color: #f472b6;">0</span>
+          <span class="hub-stat-label">📸 Instagram Verified</span>
+        </div>
+        <div class="hub-stat">
+          <span class="hub-stat-value" id="hub-messaged">0</span>
+          <span class="hub-stat-label">Contacted</span>
+        </div>
+        <div class="hub-stat">
+          <span class="hub-stat-value" id="hub-active">0</span>
+          <span class="hub-stat-label">Ready to Contact</span>
+        </div>
+      </div>
+
+      <!-- Filter Row -->
+      <div class="hub-filter-row">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="hub-search" placeholder="Search by name, city, category..." oninput="filterHub()">
+        </div>
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="ALL" onclick="setHubFilter('ALL', this)">All</button>
+          <button class="filter-pill" data-filter="HAS_WHATSAPP" onclick="setHubFilter('HAS_WHATSAPP', this)">🟢 WhatsApp Ready</button>
+          <button class="filter-pill" data-filter="HAS_INSTAGRAM" onclick="setHubFilter('HAS_INSTAGRAM', this)">📸 Instagram Ready</button>
+          <button class="filter-pill" data-filter="GOOGLE_STREET_VIEW_AGENCY" onclick="setHubFilter('GOOGLE_STREET_VIEW_AGENCY', this)">GSV Agency</button>
+          <button class="filter-pill" data-filter="360_PHOTOGRAPHER" onclick="setHubFilter('360_PHOTOGRAPHER', this)">Photographer</button>
+          <button class="filter-pill" data-filter="VIRTUAL_TOUR_AGENCY" onclick="setHubFilter('VIRTUAL_TOUR_AGENCY', this)">Virtual Tour</button>
+          <button class="filter-pill" data-filter="MESSAGED" onclick="setHubFilter('MESSAGED', this)">Messaged</button>
+        </div>
+      </div>
+
+      <!-- Creator Cards Grid -->
+      <div class="hub-grid" id="hub-grid">
+        <!-- Injected dynamically -->
+        <div class="hub-loading">
+          <div class="spinner"></div>
+          <p>Loading creators...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Panel 3: Human Approval Queue -->
+    <main class="content-panel" id="panel-approvals">
+      <div class="section-toolbar">
+        <div>
+          <h2>Human Review Queue</h2>
+          <p class="section-desc">Review and approve AI-generated replies and outbound pitches before they are sent.</p>
+        </div>
+        <button class="btn btn-primary" onclick="loadApprovals()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+          Refresh Queue
+        </button>
+      </div>
+
+      <div class="approvals-container" id="approvals-container">
+        <!-- Injected dynamically -->
+      </div>
+    </main>
+
+    <!-- Panel 4: AI Lead Finder -->
+    <main class="content-panel" id="panel-discovery">
+      <div class="section-toolbar">
+        <div>
+          <h2>AI Lead Discovery</h2>
+          <p class="section-desc">Automatically find Indian 360 photographers and Street View creators via hashtag crawling.</p>
+        </div>
+        <button class="btn btn-accent" id="btn-trigger-discovery" onclick="triggerDiscovery()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          Run Discovery Scan
+        </button>
+      </div>
+
+      <div class="filter-chip-row">
+        <span class="chip-label">Target Hubs:</span>
+        <span class="chip active">Mumbai</span>
+        <span class="chip active">Delhi NCR</span>
+        <span class="chip active">Bangalore</span>
+        <span class="chip active">Hyderabad</span>
+        <span class="chip active">Pune</span>
+        <span class="chip active">Google Street View</span>
+        <span class="chip active">₹100 Pay As You Go</span>
+      </div>
+
+      <div class="leads-table-container">
+        <table class="leads-table" id="leads-table">
+          <thead>
+            <tr>
+              <th>Creator / Studio</th>
+              <th>Category</th>
+              <th>Bio Preview</th>
+              <th>AI Pitch</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Panel 5: Conversations & Inbox -->
+    <main class="content-panel" id="panel-conversations">
+      <div class="section-toolbar">
+        <div>
+          <h2>Active Conversation Threads</h2>
+          <p class="section-desc">Inspect conversation history, incoming messages, and verified outgoing replies.</p>
+        </div>
+        <button class="btn btn-secondary" onclick="loadConversations()">Refresh Inbox</button>
+      </div>
+
+      <div class="conversations-grid" id="conversations-grid">
+        <!-- Injected dynamically -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Send DM Modal (for Outreach Hub) -->
+  <div class="modal-overlay" id="dm-modal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="dm-modal-title">Direct Instagram DM</h3>
+          <p id="dm-modal-subtitle" style="color:var(--text-muted); font-size:13px; margin-top:4px;"></p>
+        </div>
+        <button class="modal-close" onclick="closeDmModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:10px 14px; margin-bottom:14px; font-size:12px; color:var(--text-secondary); display:flex; align-items:flex-start; gap:8px;">
+          <span style="font-size:16px; line-height:1;">🛡️</span>
+          <div>
+            <strong style="color:#34d399;">Safe Manual Mode:</strong> Bot automation is disabled to prevent Instagram warnings. Clicking below copies your pitch to clipboard and opens the DM thread in a new tab. Simply press <kbd style="background:rgba(255,255,255,0.1); padding:1px 5px; border-radius:4px; font-family:monospace;">Ctrl+V</kbd> and hit Enter to send!
+          </div>
+        </div>
+        <label class="modal-label">Pitch Message (Edit if needed)</label>
+        <textarea id="dm-modal-message" class="modal-textarea" rows="6" placeholder="Type your message..."></textarea>
+        <div class="modal-char-count"><span id="dm-char-count">0</span> / 1000 chars</div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeDmModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="sendDmFromModal()" id="dm-send-btn" style="background:linear-gradient(135deg, #0891b2, #7c3aed);">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          📋 Copy & Open Instagram DM
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Creator Modal -->
+  <div class="modal-overlay" id="add-creator-modal" style="display:none;">
+    <div class="modal-card" style="max-width:580px;">
+      <div class="modal-header">
+        <div>
+          <h3>Add Creator to Outreach Hub</h3>
+          <p style="color:var(--text-muted); font-size:13px; margin-top:4px;">Manually add a photographer, agency, or studio</p>
+        </div>
+        <button class="modal-close" onclick="closeAddCreatorModal()">✕</button>
+      </div>
+      <div class="modal-body" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+        <div class="field-group" style="grid-column:1/-1;">
+          <label class="modal-label">Instagram Username *</label>
+          <input type="text" id="ac-username" class="modal-input" placeholder="e.g. 360tvt">
+        </div>
+        <div class="field-group">
+          <label class="modal-label">Display Name *</label>
+          <input type="text" id="ac-displayname" class="modal-input" placeholder="e.g. 360 Trusted Virtual Tour">
+        </div>
+        <div class="field-group">
+          <label class="modal-label">City / Region</label>
+          <input type="text" id="ac-city" class="modal-input" placeholder="e.g. Mumbai">
+        </div>
+        <div class="field-group">
+          <label class="modal-label">Category</label>
+          <select id="ac-category" class="modal-input">
+            <option value="GOOGLE_STREET_VIEW_AGENCY">GSV Agency / Business View</option>
+            <option value="360_PHOTOGRAPHER">360° Photographer</option>
+            <option value="VIRTUAL_TOUR_AGENCY">Virtual Tour Agency</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="modal-label">WhatsApp Number (with country code)</label>
+          <input type="text" id="ac-whatsapp" class="modal-input" placeholder="e.g. 919876543210">
+        </div>
+        <div class="field-group" style="grid-column:1/-1;">
+          <label class="modal-label">Bio / Notes</label>
+          <input type="text" id="ac-bio" class="modal-input" placeholder="e.g. Google Street View Trusted, Mumbai">
+        </div>
+        <div class="field-group" style="grid-column:1/-1;">
+          <label class="modal-label">Custom Pitch Message</label>
+          <textarea id="ac-pitch" class="modal-textarea" rows="3" placeholder="Your outreach message for this creator..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeAddCreatorModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="submitAddCreator()">Add to Hub</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/outreach-hub.js"></script>
+</body>
+</html>
