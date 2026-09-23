@@ -1,0 +1,8 @@
+node_modules
+logs
+.git
+.env
+*.env.local
+scratch
+browser-profile
+private
